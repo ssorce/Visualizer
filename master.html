@@ -1,14 +1,43 @@
 <!DOCTYPE html>
-<!-- Scott Sorce -->
-<html lang="en">
+<!-- Scott Sorce CS337 -->
+<html>
 <head>
-<meta charset="utf-8">
-<title>FlashCards</title>
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<meta charset="ISO-8859-1">
+<title>Calculator</title>
 </head>
 <body>
-<h1>Testing</h1> 
-<p>Card</p>
-<script></script>
+<script>
+function cal()
+{
+	var x = document.getElementById("someID").value;
+	var y = document.getElementById("otherID").value;
+	var block = document.getElementById("id1");
+	block.style.color = "white";
+	block.style.borderColor = "red";
+	block.style.borderWidth = "3px";
+	block.style.borderStyle = "solid";
+	block.style.backgroundColor = "black";
+	block.style.padding = "10px";
+	block.style.fontFamily = "Courier";
+	block.style.fontSize = "12pt";
+	block.style.float ="left";
+	block.innerHTML = x + " + " + y + " = " + ((+y)+(+x)) + "<br>" 
+	+ x + " - " + y + " = " + (x-y) + "<br>"
+	+ x + " * " + y + " = " + (x*y) + "<br>"
+	+ x + " / " + y + " = " + (x/y) + "<br>"
+	+ x + " % " + y + " = " + (x%y) + "<br>";
+}
+</script>
+<h4>Calculator</h4>
+<div id="here">
+	x <input id="someID" type="number">
+	<br>
+	y <input id="otherID" type="number">
+	<br>
+	&nbsp;<button onclick="cal();">Show results</button>
+</div>
+
+<p id="id1">
+</p>
 </body>
 </html>
