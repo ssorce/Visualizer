@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Calculator</title>
+<title>Study Guide</title>
 <link rel="stylesheet" type="text/css" href="./stylesheet.css">
 </head>
 <body>
@@ -18,37 +18,7 @@ function loadDoc() {
   xhttp.open("GET", "ajax_info.txt", true);
   xhttp.send();
 }
-
-
-function cal()
-{
-	var x = document.getElementById("someID").value;
-	var y = document.getElementById("otherID").value;
-	var block = document.getElementById("id1");
-	block.style.color = "white";
-	block.style.borderColor = "red";
-	block.style.borderWidth = "3px";
-	block.style.borderStyle = "solid";
-	block.style.backgroundColor = "black";
-	block.style.padding = "10px";
-	block.style.fontFamily = "Courier";
-	block.style.fontSize = "12pt";
-	block.style.float ="left";
-	block.innerHTML = x + " + " + y + " = " + ((+y)+(+x)) + "<br>" 
-	+ x + " - " + y + " = " + (x-y) + "<br>"
-	+ x + " * " + y + " = " + (x*y) + "<br>"
-	+ x + " / " + y + " = " + (x/y) + "<br>"
-	+ x + " % " + y + " = " + (x%y) + "<br>";
-}
 </script>
-<h4>Calculator</h4>
-<div id="here">
-	x <input id="someID" type="number">
-	<br>
-	y <input id="otherID" type="number">
-	<br>
-	&nbsp;<button onclick="cal();">Show results</button>
-</div>
 <div id="demo">
 		<h2>Let AJAX change this text</h2>
 		<button type="button" onclick="loadDoc()">Change Content</button>
@@ -70,8 +40,31 @@ function cal()
             var fileName = fileupload.value.split('\\')[fileupload.value.split('\\').length - 1];
             filePath.innerHTML = "<b>Selected File: </b>" + fileName;
         };
-    };
+	};
 </script>
+<div>
+<input type="file" name="file" id="file">input
 </div>
+<script>
+document.getElementById('file').onchange = function(){
+
+var file = this.files[0];
+
+var reader = new FileReader();
+reader.onload = function(progressEvent){
+  // Entire file
+  console.log(this.result);
+
+  // By lines
+  var lines = this.result.split('\n');
+  for(var line = 0; line < lines.length; line++){
+	console.log(lines[line]);
+  }
+};
+reader.readAsText(file);
+};
+
+
+</script>
 </body>
 </html>
