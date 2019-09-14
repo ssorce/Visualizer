@@ -19,6 +19,7 @@ function loadDoc() {
   xhttp.send();
 }
 
+
 function cal()
 {
 	var x = document.getElementById("someID").value;
@@ -48,13 +49,28 @@ function cal()
 	<br>
 	&nbsp;<button onclick="cal();">Show results</button>
 </div>
-<div>
-	<h1>File</h1>
-</div>
 <div id="demo">
 		<h2>Let AJAX change this text</h2>
 		<button type="button" onclick="loadDoc()">Change Content</button>
-	  </div>
+</div>
+
+<input type="button" id="btnFileUpload" value="Select File" />
+<span id="spnFilePath"></span>
+<input type="file" id="FileUpload1" style="display: none" />
+<script type="text/javascript">
+    window.onload = function () {
+        var fileupload = document.getElementById("FileUpload1");
+        var filePath = document.getElementById("spnFilePath");
+        var button = document.getElementById("btnFileUpload");
+        button.onclick = function () {
+            fileupload.click();
+        };
+        fileupload.onchange = function () {
+            var fileName = fileupload.value.split('\\')[fileupload.value.split('\\').length - 1];
+            filePath.innerHTML = "<b>Selected File: </b>" + fileName;
+        };
+    };
+</script>
 	  
 </body>
 </html>
