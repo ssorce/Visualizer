@@ -30,22 +30,15 @@ function loadDoc() {
 </div>
 <script>
 document.getElementById('file').onchange = function(){
-
 var file = this.files[0];
-
 var reader = new FileReader();
 reader.onload = function(progressEvent){
-  // Entire file
+  // For debugging
   console.log(this.result);
-
-  // By lines
+  // Printing out the file
   var lines = this.result.split('\n');
-  var test = "";
-  for(var line = 0; line < lines.length; line++){
-    console.log(lines[line]);
-
-  }
   document.getElementById('test').innerHTML = lines;
+  document.getElementById('test').style.font = "italic bold 20px cursive";
 };
 reader.readAsText(file);
 };
