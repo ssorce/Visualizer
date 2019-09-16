@@ -43,7 +43,7 @@ function previousDoc() {
       console.log(lines.length);
       while((lines[globalname] == "") && (globalname > 0))
         globalname--;
-      if(globalname < 0 || globalname >= line.length)
+      if(globalname < 0 || globalname >= lines.length)
         globalname = 0;
         document.getElementById('demo').innerHTML = "";
       document.getElementById('demo').innerHTML = lines[globalname];
