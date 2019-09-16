@@ -22,6 +22,7 @@ function loadDoc() {
       document.getElementById('demo').innerHTML = lines[globalname];
       document.getElementById('demo').style.font = "italic bold 20px cursive";
       globalname =+1;
+      console.log(globalname);
     }
   };
   xhttp.open("GET", "ajax_info.txt", true);
