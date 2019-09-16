@@ -39,7 +39,7 @@ reader.onload = function(progressEvent){
   var lines = this.result.split('\n');
   for(var i =0; i < lines.length-1; i++)
   {
-    document.getElementById('test').innerHTML = lines[i];
+    document.getElementById('test').innerHTML = lines[i] + "\n";
     document.getElementById('test').style.font = "cursive";
     document.getElementById('test').style.fontSize = (i*5) + "px";
   }
