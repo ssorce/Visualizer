@@ -25,7 +25,7 @@ function loadDoc() {
 		<button type="button" onclick="loadDoc()">Change Content</button>
 </div>
 <div>
-<input type="file" name="file" id="file">INPUT
+<input type="file" name="file" id="file">FILE_INPUT
 <p id="test"></p>
 </div>
 <script>
@@ -40,9 +40,9 @@ reader.onload = function(progressEvent){
 
   // By lines
   var lines = this.result.split('\n');
-  var test;
+  var test = "";
   for(var line = 0; line < lines.length; line++){
-	test =+ (lines[line]);
+	test =+ lines[line];
   }
   document.getElementById('test').innerHTML = test;
 };
