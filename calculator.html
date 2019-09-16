@@ -36,15 +36,9 @@ reader.onload = function(progressEvent){
   // For debugging
   console.log(this.result);
   // Printing out the file
-  var lines = this.result.split('\n');
-  for(var i =0; i < lines.length-1; i++)
-  {
-    document.getElementById('test').innerHTML = lines[i] + "\n";
-    document.getElementById('test').style.font = "cursive";
-    document.getElementById('test').style.fontSize = (i*5) + "px";
-  }
-  //document.getElementById('test').innerHTML = this.result;
-  //document.getElementById('test').style.font = "italic bold 20px cursive";
+  //var lines = this.result.split('\n');
+  document.getElementById('test').innerHTML = this.result;
+  document.getElementById('test').style.font = "italic bold 20px cursive";
 };
 reader.readAsText(file);
 };
