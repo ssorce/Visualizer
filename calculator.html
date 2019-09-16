@@ -9,13 +9,14 @@
 <body>
 <script>
   //This will be used for quiz section of the guide
-  var globalname = 0;
+  var globalname = -1;
 function loadDoc() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var lines = this.responseText.split('\n');
       console.log(lines.length);
+      globalname++;
       while((lines[globalname] == "") && (globalname < lines.length))
         globalname++;
       if(globalname >= lines.length)
@@ -23,38 +24,43 @@ function loadDoc() {
         document.getElementById('demo').innerHTML = "";
       document.getElementById('demo').innerHTML = lines[globalname];
       document.getElementById('demo').style.font = "italic bold 20px cursive";
-      globalname++;
       console.log(globalname);
     }
   };
   xhttp.open("GET", "ajax_info.txt", true);
   xhttp.send();
 }
+
+function previousDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      var lines = this.responseText.split('\n');
+      globalname--;
+      // No wrapping
+      if(globalname < 0 || globalname >= lines.length)
+        globalname = 0;
+      console.log(lines.length);
+      while((lines[globalname] == "") && (globalname > 0))
+        globalname--;
+      if(globalname < 0 || globalname >= line.length)
+        globalname = 0;
+        document.getElementById('demo').innerHTML = "";
+      document.getElementById('demo').innerHTML = lines[globalname];
+      document.getElementById('demo').style.font = "italic bold 20px cursive";
+      console.log(globalname);
+    }
+  };
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
+}
+
+
+
 </script>
 <div id="demo">
-		<h2>Let AJAX change this text</h2>
 </div>
-<div><button type="button" onclick="loadDoc()">Change Content</button></div>
-<div>
-<input type="file" name="file" id="file">
-<p id="test"></p>
-</div>
-<script>
-document.getElementById('file').onchange = function(){
-var file = this.files[0];
-var reader = new FileReader();
-reader.onload = function(progressEvent){
-  // For debugging
-  console.log(this.result);
-  // Printing out the file
-  //var lines = this.result.split('\n');
-  document.getElementById('test').innerHTML = this.result;
-  document.getElementById('test').style.font = "italic bold 20px cursive";
-};
-reader.readAsText(file);
-};
-
-
-</script>
+<div><button type="button" onclick="previousDoc()">Previous</button></div>
+<div><button type="button" onclick="loadDoc()">Next</button></div>
 </body>
 </html>

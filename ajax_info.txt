@@ -1,10 +1,6 @@
-Ajax_info
-testing
-hello world
-
-
-
-
-
-This is a test doc
-That will change colors so that it is easier to read
+Question 1?
+    answer 1
+Question 2?
+    answer 2
+Question 3?
+    answer 3
