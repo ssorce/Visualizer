@@ -15,6 +15,10 @@ function loadDoc() {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       var lines = this.responseText.split('\n');
+      while(lines[globalname].length == 0 && !(globalname < lines.length))
+        globalname++;
+      if(globalname >= lines.length)
+        globalname = 0;
       document.getElementById('demo').innerHTML = lines[globalname];
       document.getElementById('demo').style.font = "italic bold 20px cursive";
       globalname =+1;
