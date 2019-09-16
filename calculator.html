@@ -42,9 +42,10 @@ reader.onload = function(progressEvent){
   var lines = this.result.split('\n');
   var test = "";
   for(var line = 0; line < lines.length; line++){
-	test =+ lines[line];
+    console.log(lines[line]);
+
   }
-  document.getElementById('test').innerHTML = test;
+  document.getElementById('test').innerHTML = lines;
 };
 reader.readAsText(file);
 };
