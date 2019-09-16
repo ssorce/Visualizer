@@ -14,9 +14,10 @@ function loadDoc() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      var lines = this.responseText;
-      document.getElementById("demo").innerHTML = lines[globalname++];
-      document.getElementById('test').style.font = "italic bold 20px cursive";
+      var lines = this.responseText.split('\n');
+      document.getElementById('demo').innerHTML = lines[globalname];
+      document.getElementById('demo').style.font = "italic bold 20px cursive";
+      globalname =+1;
     }
   };
   xhttp.open("GET", "ajax_info.txt", true);
